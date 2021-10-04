@@ -1,0 +1,255 @@
+* {
+  box-sizing: border-box;
+}
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+body {
+  font-family: "Open Sans", sans-serif;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+.header__title {
+  font-weight: 700;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to bottom, red, yellow);
+}
+.header {
+  margin-top: 20px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product__gia {
+  margin-right: 5px;
+  color: rgb(131, 131, 131);
+  text-decoration: line-through #212121;
+}
+.product__title {
+  font-size: 17px;
+  font-weight: 700;
+}
+.product__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.product__desc {
+  padding: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.product__prices {
+  padding: 10px 0;
+}
+.product__price {
+  color: red;
+  font-weight: 600;
+}
+.product__btn {
+  text-align: center;
+}
+.btn-buying {
+  background-color: red;
+  color: wheat;
+}
+.nav {
+  background-color: #212121;
+}
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: #212121;
+  background-color: white;
+}
+main {
+  margin-top: 30px;
+}
+.account {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.account__title {
+  background-color: rgb(228, 227, 227);
+  text-align: center;
+  font-size: 25px;
+  padding: 5px 0;
+  font-weight: 700;
+}
+.account__login {
+  padding: 10px;
+}
+.account__forget {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+.category {
+  margin-top: 20px;
+}
+.footer {
+  background-color: black;
+  padding: 20px 0;
+}
+.footer__p {
+  text-align: center;
+  color: white;
+}
+.category {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.category__h4 {
+  background-color: rgb(230, 230, 230);
+  text-align: center;
+  font-size: 20px;
+  padding: 10px 0;
+  font-weight: 700;
+}
+.category__ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.category__link {
+  display: block;
+  background-color: rgb(230, 230, 230);
+  border-bottom: 1px solid #ccc;
+  padding: 10px 5px;
+  color: #212121;
+}
+.category__link:hover {
+  background-color: rgb(145, 143, 143);
+  color: white;
+  text-decoration: none;
+}
+.search {
+  padding-left: 20px;
+}
+.search__input {
+  border: 1px solid black;
+  outline: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px;
+  width: 70%;
+}
+.search__btn {
+  border: none;
+  outline: none;
+  font-weight: 600;
+  height: 40px;
+  width: 50px;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, rgb(126, 248, 70), yellow);
+}
+.mostView {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.mostView__ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mostView__li {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+.mostView__img {
+  display: block;
+  width: 100%;
+}
+.mostView__imgs {
+  width: 30%;
+}
+.mostView__h4 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: rgb(224, 222, 222);
+  padding: 20px 0;
+}
+.chitiet {
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+.chitiet__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.chitiet__bl {
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.chitiet__form {
+  padding: 10px;
+}
+.chitiet__h3 {
+  padding: 20px;
+  background-color: rgb(228, 226, 226);
+}
+.chitiet__li {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 20px;
+}
+.chitiet__li::before {
+  content: "";
+  background-color: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 7px;
+}
+.chitiet__input {
+  width: 80%;
+  height: 35px;
+}
+.home__h2 {
+  display: inline-block;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to left, #ff4895, #ffd96a);
+  font-weight: 700;
+}
+.nav-link {
+  font-weight: 700;
+}
+.contact-1 {
+  padding: 10px 30px;
+}
+.input-control-contact {
+  width: 350px;
+  margin: 5px;
+}
+.input-control-contact-textarea {
+  width: 360px;
+  height: 150px;
+}
+.img-intro-main {
+  text-align: center;
+}
+.map {
+  float: right;
+}

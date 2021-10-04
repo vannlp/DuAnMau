@@ -1,0 +1,13 @@
+.nav {
+  background-color: black;
+}
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: black;
+  background-color: white;
+}
+.table {
+  width: 100%;
+}
