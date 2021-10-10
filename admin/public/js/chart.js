@@ -1,35 +1,47 @@
 window.addEventListener("load", function () {
-  var ctx = document.getElementById("myChart").getContext("2d");
-  var myChart = new Chart(ctx, {
-    type: "doughnut",
-    data: {
-      labels: ["Red", "Blue", "Yellow", "Green"],
-      datasets: [
-        {
-          label: "# of Votes",
-          data: [0.25, 0.5, 0.2, 0.05],
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-          ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-          ],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
+  $.get("../thongke/ajax.php", { name: "chart" }, function (data) {
+    var arr = [];
+    data = JSON.parse(data);
+    arr = data;
+    // console.log(arr);
+    var tenChart = [];
+    arr.forEach(function (data, index) {
+      tenChart.push(data[1]);
+    });
+    console.log(arr);
+    var backgr = [];
+    var duLieu = [];
+    arr.forEach(function (data) {
+      var i = Math.round(Math.random()*255);
+      var y = Math.round(Math.random()*255);
+      var z = Math.round(Math.random()*255);
+      
+      backgr.push("rgba("+ z +", "+ y +", " + i + ", 0.2)");
+      duLieu.push(data[2]);
+    });
+    // console.log(duLieu)
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myChart = new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: tenChart,
+        datasets: [
+          {
+            label: "# of Votes",
+            data: duLieu,
+            backgroundColor: backgr,
+            borderColor: backgr,
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
         },
       },
-    },
+    });
   });
 });

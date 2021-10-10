@@ -11,3 +11,21 @@
 .table {
   width: 100%;
 }
+.paging{
+  display: flex;
+  list-style: none;
+}
+.paging__btn{
+  color: #212121;
+  font-size: 20px;
+  line-height: 1;
+}
+.paging__next, .paging__frew{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.paging__item{
+  margin: 0 2px;
+  font-size: 20px;
+}

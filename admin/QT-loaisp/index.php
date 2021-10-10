@@ -1,5 +1,6 @@
 <?php
-require_once "../../model/LoaiModel.php";
+require_once '../../global.php';
+require_once URL_MODEL . 'loaiModel.php';
 $data = [];
 if (isset($_GET['url'])) {
     $url = $_GET['url'];

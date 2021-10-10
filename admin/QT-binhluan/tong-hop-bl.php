@@ -9,13 +9,18 @@
         <th>CŨ NHẤT</th>
         <th>HÀNH ĐỘNG</th>
     </tr>
+    <?php 
+    foreach ($items as $val){
+        extract($val);
+    ?>
     <tr>
-        <td>hàng 1</td>
-        <td>12</td>
-        <td>26/9/2021</td>
-        <td>26/9/2021</td>
+        <td><?=$ten_hh?></td>
+        <td><?=$so_luong?></td>
+        <td><?=$cu_nhat?></td>
+        <td><?=$moi_nhat?></td>
         <td>
-            <a href="?url=chi-tiet" class="btn btn-primary">Chi tiết</a>
+            <a href="?url=chi-tiet&ma_hh=<?=$ma_hh?>" class="btn btn-primary">Chi tiết</a>
         </td>
     </tr>
+    <?php }?>
 </table>

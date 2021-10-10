@@ -1,6 +1,7 @@
 <?php
 require_once '../model/KhachHangModel.php';
 require_once '../global.php';
+require_once URL_MODEL.'HangHoaModel.php';
 $data = [];
 if (isset($_GET['url'])) {
     $url = $_GET['url'];
@@ -8,7 +9,7 @@ if (isset($_GET['url'])) {
         case 'login':
             // echo $_POST['username'];
             if (isset($_POST['submit'])) {
-
+                // móc dữ liệu
                 $login = getKhachHang();
                 $username = $_POST['username'];
                 $pass = md5($_POST['pass']);
@@ -34,7 +35,7 @@ if (isset($_GET['url'])) {
             break;
         case 'register':
             if (isset($_POST['btn-submit'])) {
-                if ($_POST['pass'] == $_POST['a-pass']) {
+                if ($_POST['pass'] == $_POST['a-pass'] && $_POST['ma_kh'] != '' && strlen($_POST['ma_kh']) >= 10 && $_POST['email'] != '') {
                     $kh = [];
                     $kh['ma_kh'] = $_POST['ma_kh'];
                     $kh['mat_khau'] = md5($_POST['pass']);
@@ -67,7 +68,7 @@ if (isset($_GET['url'])) {
                 }
                 // echo ($kh['hinh']);
                 // cap nhap du lieu
-                updateKhachHangUser($kh) ? $data['thong-bao'] = "Cập nhập thành công" : $data['thong-bao'] = "Cập nhập thất bại";
+                updateKhachHang($kh) ? $data['thong-bao'] = "Cập nhập thành công" : $data['thong-bao'] = "Cập nhập thất bại";
                 $_SESSION['login'] = getKhachHangId($kh['ma_kh']);
             }
 

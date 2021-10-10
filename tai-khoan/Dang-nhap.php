@@ -16,9 +16,9 @@
         <a href="?url=register" class="btn btn-primary">Đăng ký</a>
         <a href="?url=forget-pass" class="btn btn-primary">Quên mật khẩu</a>
     </div>
-</form>
 <?php
 if (isset($data['thong_bao'])) {
     echo '<h5>' . $data['thong_bao'] . '</h5';
 }
 ?>
+</form>

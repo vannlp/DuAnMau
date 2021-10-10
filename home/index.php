@@ -6,7 +6,27 @@ if (isset($_GET['url'])) {
     $url = $_GET['url'];
     switch ($url) {
         case 'trangchu':
-            $data['hang-hoa'] = getHangHoa();
+            /*
+            input: số phân trang, trang hiển thị
+            */
+            $data['listAll'] = getHangHoa();
+            $so_item_ht = 6;
+            $index = count($data['listAll']);
+            $so_trang = ceil($index / $so_item_ht);
+            // so start
+            if (isset($_GET['trang'])) {
+                $trang = $_GET['trang'];
+                if ($trang == 1) {
+                    $start = 0;
+                } else {
+                    $start = ($trang - 1) * $so_item_ht;
+                }
+                $data['hang-hoa'] = phanTrang($start, $so_item_ht);
+            } else {
+                $trang = 1;
+                $start = 0;
+                $data['hang-hoa'] = phanTrang($start, $so_item_ht);
+            }
             $page = 'trangchu.php';
             break;
         case 'gioithieu':
@@ -21,7 +41,27 @@ if (isset($_GET['url'])) {
             break;
     }
 } else {
-    $data['hang-hoa'] = getHangHoa();
+    /*
+    input: số phân trang, trang hiển thị
+    */
+    $data['listAll'] = getHangHoa();
+    $so_item_ht = 6;
+    $index = count($data['listAll']);
+    $so_trang = ceil($index / $so_item_ht);
+    // so start
+    if (isset($_GET['trang'])) {
+        $trang = $_GET['trang'];
+        if ($trang == 1) {
+            $start = 0;
+        } else {
+            $start = ($trang - 1) * $so_item_ht;
+        }
+        $data['hang-hoa'] = phanTrang($start, $so_item_ht);
+    } else {
+        $trang = 1;
+        $start = 0;
+        $data['hang-hoa'] = phanTrang($start, $so_item_ht);
+    }
     $page = 'trangchu.php';
 }
 

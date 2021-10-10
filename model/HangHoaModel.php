@@ -46,3 +46,47 @@ function getHangHoaMaLoai($ma_loai)
     $sql = "SELECT * from hang_hoa where ma_loai=?";
     return pdo_query($sql, $ma_loai);
 }
+function getLuotXem($ma_hh)
+{
+    $sql = "SELECT so_luot_xem from hang_hoa where ma_hh=?";
+    return pdo_query_value($sql, $ma_hh);
+}
+
+function tangLuotXem($ma_hh)
+{
+    $so_luot_xem = getLuotXem($ma_hh);
+    $so_luot_xem = (int)$so_luot_xem;
+    $so_luot_xem++;
+    $sql = "UPDATE hang_hoa set so_luot_xem=? where ma_hh=?";
+    return pdo_execute($sql, $so_luot_xem, $ma_hh);
+}
+function top10HangHoa()
+{
+    $sql = "SELECT * from hang_hoa order by so_luot_xem desc limit 10";
+    return pdo_query($sql);
+}
+function phanTrang ($ht_trang, $trang) {
+    $sql = "SELECT * from hang_hoa order by ma_hh desc limit $ht_trang, $trang";
+    $con = pdo_get_connection();
+    $datas = $con->query($sql);
+    $data = $datas->fetchAll();
+    return $data;
+}
+function deleteHangHoa_s($ma_hh = []){
+    for ($i = 0; $i < count($ma_hh); $i++) {
+        $sql = "DELETE from hang_hoa where ma_hh=?";
+        pdo_execute($sql, $ma_hh[$i]);
+    }
+}
+function timKiemHangHoa ($noi_dung) {
+    $sql = "SELECT * FROM hang_hoa hh INNER JOIN loai lo ON lo.ma_loai=hh.ma_loai
+            WHERE ten_hh LIKE '%$noi_dung%' OR ten_loai LIKE '%$noi_dung%'";
+    $con = pdo_get_connection();
+    $datas = $con->query($sql);
+    $data = $datas->fetchAll();
+    return $data;
+}
+function hangCungLoai($ma_loai){
+    $sql = "SELECT * from hang_hoa where ma_loai=?";
+    return pdo_query($sql, $ma_loai);
+}

@@ -20,6 +20,11 @@ img {
   margin-top: 20px;
 }
 
+.account__img{
+  border-radius: 50%;
+  border: 3px solid #1d6cfd;
+}
+
 .product {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -42,6 +47,7 @@ img {
   display: block;
   width: 100%;
   height: auto;
+  padding: 10px;
 }
 .product__desc {
   padding: 20px;

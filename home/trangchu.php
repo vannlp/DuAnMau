@@ -59,9 +59,12 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <!-- <li class="page-item"><a class="page-link" href="#">1</a></li> -->
+            <?php
+            for ($i = 1; $i <= $so_trang; $i++){
+                echo '<li class="page-item"><a class="page-link" href="?url=trangchu&trang='.$i.'">'.$i.'</a></li>';
+            }
+            ?>
             <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>

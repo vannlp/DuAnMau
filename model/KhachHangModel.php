@@ -26,6 +26,12 @@ function getKhachHangId($ma_kh)
 function updateKhachHangUser($kh = [])
 {
     extract($kh);
+    $sql = "UPDATE khach_hang set ho_ten=?, email=?, hinh=?, vai_tro=? where ma_kh=?";
+    return pdo_execute($sql, $ho_ten, $email, $hinh, $vai_tro, $ma_kh);
+}
+function updateKhachHang($kh = [])
+{
+    extract($kh);
     $sql = "UPDATE khach_hang set ho_ten=?, email=?, hinh=? where ma_kh=?";
     return pdo_execute($sql, $ho_ten, $email, $hinh, $ma_kh);
 }
@@ -40,4 +46,12 @@ function setRegister($kh = [])
     values(?, ?, ?, 1, 2)";
     extract($kh);
     return pdo_execute($sql, $ma_kh, $email, $mat_khau);
+}
+function imgKhachHang($ma_kh){
+    $sql = "SELECT hinh from khach_hang where ma_kh=?";
+    return pdo_query_value($sql, $ma_kh);
+}
+function deleteKhachHang($ma_kh){
+    $sql = "DELETE from khach_hang where ma_kh=?";
+    return pdo_execute($sql, $ma_kh);
 }

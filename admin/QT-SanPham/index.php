@@ -63,12 +63,37 @@ if (isset($_GET['url'])) {
             $page = 'edit.php';
             break;
         case 'list':
-            $data['list'] = getHangHoa();
-            // print_r($data['list']);
+            /*
+            input: số phân trang, trang hiển thị
+            */
+            $data['listAll'] = getHangHoa();
+            $index = count($data['listAll']);
+            $so_trang = ceil($index/5);
+            // so start
+            if (isset($_GET['trang'])) {
+                $trang = $_GET['trang'];
+                if ($trang == 1){
+                    $start = 0;
+                }else{
+                    $start = ($trang-1) * 5;
+                }
+                $data['list'] = phanTrang($start, 5);
+            }else{
+                $trang = 1;
+                $start = 0;
+                $data['list'] = phanTrang($start, 5);
+            }
             $page = 'list.php';
             break;
 
         case 'delete':
+            if (isset($_POST['btn-submit'])) {
+                if(isset($_POST['checks'])){
+                    $arr = $_POST['checks'];
+                    deleteHangHoa_s($arr);
+                    header('location: ?url=list');
+                }
+            }
             if (isset($_REQUEST['ma_hh'])) {
                 deleteHangHoa($_REQUEST['ma_hh']);
                 header('location: ?url=list');

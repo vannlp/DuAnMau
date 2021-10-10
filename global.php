@@ -2,6 +2,8 @@
 session_start();
 $URL = '//localhost:8000';
 $URL_IMG = $URL . '/public/images/';
+define("URL_MODEL", __DIR__ . '/model/');
+
 
 
 function save_file($fileNames, $target_dir)

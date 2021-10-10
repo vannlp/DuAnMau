@@ -21,8 +21,8 @@
             <td>' . $values['email'] . '</td>
             <td>' . $vai_tro . '</td>
             <td>
-                <a href="?url=edit" class="btn btn-primary">Sửa</a>
-                <a href="?url=delete" class="btn btn-primary">Xóa</a>
+                <a href="?url=edit&ma_kh=' . $values['ma_kh'] . '" class="btn btn-primary">Sửa</a>
+                <a href="?url=delete&ma_kh=' . $values['ma_kh'] . '" class="btn btn-primary">Xóa</a>
             </td>
         </tr>
         ';

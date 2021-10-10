@@ -13,9 +13,9 @@ $data['loai'] = getLoai();
         }
         ?>
     </ul>
-    <form action="" method="post" class="search">
+    <form action="../search/?search" method="post" class="search">
         <div class="form-group">
-            <input type="search" name="" id="" class="search__input" placeholder="tìm kiếm...">
+            <input type="search" name="search" id="" class="search__input" placeholder="tìm kiếm...">
             <button class="search__btn" type="submit">OK</button>
         </div>
     </form>
